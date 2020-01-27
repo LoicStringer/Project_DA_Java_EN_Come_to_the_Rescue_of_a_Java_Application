@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * Creates a data manager for <b>text</b> files specifically, mostly to extract
- * them from a source file or write them out.
+ * them from a source file or write them out in a new one.
  * 
  * @see IDataHandler
  */
@@ -38,8 +38,8 @@ public class TxtFilesDataHandler implements IDataHandler {
 	 * Reads strings from a specific formatted text file, containing one symptom per
 	 * line, and generate a string list of them.
 	 * 
-	 * @return an ArrayList of each symptom as a {@link String}.
-	 * @exception FileNotFoundException
+	 * @return an {@link ArrayList} of each symptom as a {@link String}.
+	 * @exception IOException
 	 */
 	@Override
 	public List<String> collectData() {
@@ -72,13 +72,13 @@ public class TxtFilesDataHandler implements IDataHandler {
 	 * 
 	 * @exception IOException
 	 */
-
 	public void writeResultsOut() {
 		try {
 			if (!file.exists()) {
 				file.createNewFile();
 			}
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+
 			for (Map.Entry<String, Integer> entry : resultsToWrite.entrySet()) {
 				String symptomAndOccurrence = entry.getKey() + " = " + entry.getValue();
 				bw.write(symptomAndOccurrence);

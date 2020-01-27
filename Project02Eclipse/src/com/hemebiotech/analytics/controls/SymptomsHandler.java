@@ -12,7 +12,7 @@ import java.util.TreeMap;
 
 public class SymptomsHandler implements ISymptomsHandler {
 
-	private List<String> collectedData;// incoming extracted data
+	private List<String> collectedData;// extracted data to filter
 
 	// Constructor
 	public SymptomsHandler(List<String> collectedData) {
@@ -28,7 +28,7 @@ public class SymptomsHandler implements ISymptomsHandler {
 	 *         values are occurrences.
 	 */
 	@Override
-	public TreeMap<String, Integer> mapReduceSymptomsList() {
+	public TreeMap<String, Integer> filterSymptomsList() {
 		TreeMap<String, Integer> symptomsMap = new TreeMap<String, Integer>();
 		for (String symptom : collectedData) {
 			Integer occurrence = symptomsMap.get(symptom);

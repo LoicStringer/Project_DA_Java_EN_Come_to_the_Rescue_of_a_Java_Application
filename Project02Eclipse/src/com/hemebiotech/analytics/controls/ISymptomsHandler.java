@@ -15,6 +15,6 @@ public interface ISymptomsHandler {
 	 * 
 	 * @return Map where <K,V> are <symptom's name,occurrence>
 	 */
-	Map<String, Integer> mapReduceSymptomsList();
+	Map<String, Integer> filterSymptomsList();
 
 }
